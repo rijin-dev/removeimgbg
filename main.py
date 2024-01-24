@@ -16,8 +16,10 @@ def convert_image(img):
     byte_im = buf.getvalue()
     return byte_im
 
-
-st.title("이미지 배경 제거")
+title_text ="""
+<h2 style='text-align: center; color: #872657;'>:: 이미지 배경 제거 ::</h2>
+"""
+st.markdown(title_text, unsafe_allow_html=True)
 st.divider()
 st.write("#### :sunglasses: 베르데코 직원만 이용하세요. :sunglasses:")
 
