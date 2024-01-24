@@ -2,7 +2,7 @@ import streamlit as st
 from rembg import remove
 from PIL import Image
 from io import BytesIO
-
+import datetime
 
 def remove_background(input_img):
     output_img = remove(input_img)
@@ -36,9 +36,11 @@ if uploaded_file is not None:
     st.subheader("결과 :stuck_out_tongue:", divider="rainbow")
     st.image(output_img, caption="배경 제거 이미지 ", use_column_width=True)
     st.info("결과 이미지 저장을 원하시면 아래 '다운로드 이미지' 버튼을 클릭하세요.")
+    suffix = datetime.datetime.now().strftime('%y%m%d_%H%M%S')
+    downloaded_file = f"img_{suffix}.png"
     st.download_button(
         label="다운로드 이미지",
         data=downloadable_image,
-        file_name="output.png",
+        file_name=downloaded_file,
         mime="image/png",
     )
